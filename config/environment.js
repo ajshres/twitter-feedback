@@ -4,6 +4,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'twitter-feedback',
+    podModulePrefix: 'appfiles',
     environment,
     rootURL: '/',
     locationType: 'auto',
