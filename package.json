@@ -10,7 +10,6 @@
     "test": "tests"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config",
     "demoURL": "http://ajshres.github.io/twitter-feedback"
   },
   "repository": "",
