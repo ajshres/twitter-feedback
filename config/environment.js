@@ -48,7 +48,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.rootURL = '/twitter-feedback';
+    ENV.locationType = 'hash';
   }
 
   return ENV;

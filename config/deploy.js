@@ -18,6 +18,12 @@ module.exports = function(deployTarget) {
 
   if (deployTarget === 'production') {
     ENV.build.environment = 'production';
+    ENV.git = {
+      repo: 'git@github.com:ajshres/twitter-feedback.git',
+      branch: 'deploys',
+      worktreePath: '/tmp/ajshres-deploy',
+      commitMessage: 'Deployed %@'
+    };
     // configure other plugins for production deploy target here
   }
 
