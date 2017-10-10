@@ -21,7 +21,7 @@ module.exports = function(deployTarget) {
     ENV.git = {
       repo: 'git@github.com:ajshres/twitter-feedback.git',
       branch: 'deploys',
-      worktreePath: '/tmp/gh-pages',
+      worktreePath: '/home/lt84/projects/twitter-feedback-deploy',
       commitMessage: 'Deployed %@'
     };
     // configure other plugins for production deploy target here
