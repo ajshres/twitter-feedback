@@ -24,8 +24,8 @@ module.exports = function(environment) {
       // when it is created
     }
   };
-
   ENV.hostURL = 'http://localhost:3000';
+  // ENV.hostURL = 'https://shielded-river-51028.herokuapp.com';
   ENV.hostURLWithSlash = ENV.hostURL+'/';
 
   if (environment === 'development') {
@@ -50,6 +50,8 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.rootURL = '/twitter-feedback';
     ENV.locationType = 'hash';
+    ENV.hostURL = 'https://shielded-river-51028.herokuapp.com';
+    ENV.hostURLWithSlash = ENV.hostURL+'/';
   }
 
   return ENV;
