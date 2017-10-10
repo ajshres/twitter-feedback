@@ -4,7 +4,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'twitter-feedback',
-    podModulePrefix: 'appfiles',
+    podModulePrefix: 'twitter-feedback/appfiles',
     environment,
     rootURL: '/',
     locationType: 'auto',
@@ -24,6 +24,9 @@ module.exports = function(environment) {
       // when it is created
     }
   };
+
+  ENV.hostURL = 'http://localhost:3000';
+  ENV.hostURLWithSlash = ENV.hostURL+'/';
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

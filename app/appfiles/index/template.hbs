@@ -1,1 +1,60 @@
-{{outlet}}
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-bar-blue">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="form-inline my-2 my-lg-0 float-left" {{action (perform tweetsTask search) on="submit"}}>
+                    {{input class="form-control mr-sm-2" type="text" value=search placeholder="Search" data-action="grow" aria-label="Search"}}
+                    <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container container-margin">
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Recently used your hastags</h4>
+                        <ul class="list-group">
+                            {{#each recentHash as |recent|}}
+                            <li class="list-group-item">
+                                <span class="oi oi-fork"></span>
+                                <a href="javascript:void;" {{action 'recentTweets' recent}}>{{recent}}</a>
+                            </li>
+                            {{else}}
+                            <li class="list-group-item">
+                                No recent search
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <ul class="list-group tweet-lists">
+                    <li class="list-group-item">
+                        <h4>Latest {{tweets.length}}</h4>
+                    </li>
+                    {{#if tweetsTask.isIdle}}
+                    {{#each tweets as |tweet index|}}
+                    <li class="list-group-item">
+                        <img class="figure figure-img" src="{{tweet.user.profile_image_url_https}}" alt="">
+                        <div class="figure figure-div">
+                            <p class="tweets">{{tweet.text}}</p>
+                            <small class="float-right">{{moment tweet.created_at}}</small>
+                        </div>
+                    </li>
+                    {{else}}
+                    <li class="list-group-item">No Tweets found</li>
+                    {{/each}}
+                    {{else}}
+                    <li class="list-group-item">Loading...</li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </div>
